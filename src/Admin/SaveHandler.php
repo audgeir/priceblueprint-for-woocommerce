@@ -68,7 +68,9 @@ class SaveHandler {
 			exit;
 		}
 
-		update_post_meta( $post_id, 'prbp_template_rules', wp_json_encode( self::sanitizeSections( $sections ) ) );
+		// wp_slash() — update_post_meta() unslashes its value, which would strip the
+		// backslashes wp_json_encode() uses for \uXXXX and \" escapes and corrupt the JSON.
+		update_post_meta( $post_id, 'prbp_template_rules', wp_slash( wp_json_encode( self::sanitizeSections( $sections ) ) ) );
 		RulesCache::flush( $post_id );
 	}
 

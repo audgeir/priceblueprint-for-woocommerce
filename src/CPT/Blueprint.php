@@ -15,8 +15,8 @@ class Blueprint {
 
 	public static function register(): void {
 		add_action( 'init',               [ self::class, 'registerCPT' ],  10 );
-		add_action( 'before_delete_post', [ self::class, 'handleRemoval' ], 10, 1 );
-		add_action( 'wp_trash_post',      [ self::class, 'handleRemoval' ], 10, 1 );
+		add_action( 'before_delete_post', [ self::class, 'handleDelete' ], 10, 1 );
+		add_action( 'wp_trash_post',      [ self::class, 'handleTrash' ],  10, 1 );
 	}
 
 	public static function registerCPT(): void {
@@ -48,17 +48,47 @@ class Blueprint {
 	}
 
 	/**
-	 * When a blueprint is trashed or permanently deleted, move all linked products
-	 * to draft and clear their price, attributes, and blueprint reference.
+	 * Trashing a blueprint is reversible, so it must not destroy product data:
+	 * linked products are only unpublished (draft). Prices, attributes, and the
+	 * prbp_template_id link stay intact — restoring the blueprint from Trash lets
+	 * the merchant simply republish the products.
 	 *
 	 * @param int $post_id
 	 */
-	public static function handleRemoval( int $post_id ): void {
+	public static function handleTrash( int $post_id ): void {
 		if ( get_post_type( $post_id ) !== 'price_blueprint' ) {
 			return;
 		}
 
-		$linked_ids = get_posts( [
+		foreach ( self::linkedProductIds( $post_id ) as $product_id ) {
+			self::unpublishProduct( $product_id );
+		}
+	}
+
+	/**
+	 * Permanent deletion: unpublish linked products and remove the blueprint
+	 * reference. Prices and attributes are deliberately left untouched — they
+	 * may include data the merchant set manually for other purposes.
+	 *
+	 * @param int $post_id
+	 */
+	public static function handleDelete( int $post_id ): void {
+		if ( get_post_type( $post_id ) !== 'price_blueprint' ) {
+			return;
+		}
+
+		foreach ( self::linkedProductIds( $post_id ) as $product_id ) {
+			self::unpublishProduct( $product_id );
+			delete_post_meta( $product_id, 'prbp_template_id' );
+		}
+	}
+
+	/**
+	 * @param  int $post_id Blueprint post ID.
+	 * @return int[]        Product IDs linked to this blueprint.
+	 */
+	private static function linkedProductIds( int $post_id ): array {
+		return get_posts( [
 			'post_type'      => 'product',
 			'post_status'    => 'any',
 			'posts_per_page' => -1,
@@ -71,21 +101,24 @@ class Blueprint {
 				],
 			],
 		] );
+	}
 
-		foreach ( $linked_ids as $product_id ) {
-			$product = wc_get_product( $product_id );
-			if ( ! $product ) {
-				continue;
-			}
-
-			$product->set_status( 'draft' );
-			$product->set_regular_price( '' );
-			$product->set_price( '' );
-			$product->set_sale_price( '' );
-			$product->set_attributes( [] );
-			$product->save();
-
-			delete_post_meta( $product_id, 'prbp_template_id' );
+	/**
+	 * Move a published product to draft without touching any of its other data.
+	 *
+	 * @param int $product_id
+	 */
+	private static function unpublishProduct( int $product_id ): void {
+		if ( 'publish' !== get_post_status( $product_id ) ) {
+			return;
 		}
+
+		$product = wc_get_product( $product_id );
+		if ( ! $product ) {
+			return;
+		}
+
+		$product->set_status( 'draft' );
+		$product->save();
 	}
 }

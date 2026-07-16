@@ -23,7 +23,10 @@ class CartItemMeta {
 	}
 
 	/**
-	 * Server-side validation: all attributes from the template must be selected.
+	 * Server-side validation: every attribute from the template must carry a
+	 * selection that matches one of that attribute's rule value slugs. A bare
+	 * "not empty" check is not enough — a tampered slug would silently skip
+	 * rule matching in capture() and the option's price would never be added.
 	 *
 	 * @param bool $passed
 	 * @param int  $product_id
@@ -51,7 +54,21 @@ class CartItemMeta {
 		$selections = array_map( 'sanitize_key', wp_unslash( (array) ( $_POST['prbp_selections'] ?? [] ) ) );
 
 		foreach ( $attributes as $attr ) {
-			if ( empty( $selections[ $attr ] ) ) {
+			$slug     = $selections[ $attr ] ?? '';
+			$is_valid = false;
+
+			if ( '' !== $slug ) {
+				foreach ( $rules as $rule ) {
+					if ( $rule['attribute'] === $attr
+						&& in_array( $slug, (array) ( $rule['value_slugs'] ?? [] ), true )
+					) {
+						$is_valid = true;
+						break;
+					}
+				}
+			}
+
+			if ( ! $is_valid ) {
 				wc_add_notice(
 					sprintf(
 						/* translators: %s: Attribute name (e.g. "pa_color") */

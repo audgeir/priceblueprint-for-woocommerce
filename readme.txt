@@ -3,7 +3,7 @@ Contributors: wpedgar
 Tags: attribute-pricing, woocommerce, pricing-rules, product-attributes, variable-products, dynamic-pricing, configurable-products, product-options
 Requires at least: 6.0
 Tested up to: 7.0
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -82,6 +82,13 @@ Yes, just set the add-on to `0.00`. Handy for your base option that should not c
 6. Attribute selections and final price visible in the order details.
 
 == Changelog ==
+
+= 1.7.2 =
+* Security: Add-to-cart validation now verifies every selected option against the blueprint's actual rule values — previously a tampered form submission could add a product to the cart without paying for its selected options.
+* Fix: The plugin could not be deleted from the Plugins screen — uninstall.php referenced a Freemius helper that is unavailable during uninstall, causing a fatal error. Uninstall now also removes plugin options and correctly clears leftover transients.
+* Fix: Fatal parse error on PHP 7.4 — a PHP 8-only union type in the gallery placeholder handler broke sites running the minimum supported PHP version.
+* Fix: Pricing rules containing non-Latin characters (ö, ü, ł, Cyrillic, etc.) or quotes in term labels were corrupted on save due to missing slashing around the stored JSON. Affected blueprints need to be re-saved once after updating.
+* Fix: Moving a blueprint to the Trash no longer wipes prices and attributes of linked products. Trashing now only unpublishes linked products (fully reversible); permanent deletion additionally unlinks them, leaving all other product data intact.
 
 = 1.7.1 =
 * Fix: "Import Demo Data" could fatal error (500) on some stores due to an unguarded wp_insert_term() call — now handled gracefully with a proper error message.

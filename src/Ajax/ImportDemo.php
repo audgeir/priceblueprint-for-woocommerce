@@ -182,7 +182,8 @@ class ImportDemo {
 			}
 		}
 
-		update_post_meta( $blueprint_id, 'prbp_template_rules', wp_json_encode( $rules ) );
+		// wp_slash() — update_post_meta() unslashes, which would corrupt JSON escape sequences.
+		update_post_meta( $blueprint_id, 'prbp_template_rules', wp_slash( wp_json_encode( $rules ) ) );
 
 		return $blueprint_id;
 	}

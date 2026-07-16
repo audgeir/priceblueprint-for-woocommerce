@@ -27,12 +27,19 @@ foreach ( $prbp_template_ids as $prbp_template_id ) {
 // Delete product meta referencing price blueprints.
 delete_post_meta_by_key( 'prbp_template_id' );
 
+// Delete plugin options.
+delete_option( 'prbp_show_welcome' );
+delete_option( 'prbp_demo_blueprint_id' );
+delete_option( 'prbp_demo_product_id' );
+
 // Clean up any lingering transients (save error transients use user IDs).
 global $wpdb;
 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 $wpdb->query(
-	"DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transientprbp_save_error_%' OR option_name LIKE '_transient_timeoutprbp_save_error_%'"
+	"DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_prbp_save_error_%' OR option_name LIKE '_transient_timeout_prbp_save_error_%'"
 );
 
-// Not like register_uninstall_hook(), you do NOT have to use a static function.
-pfwp_fs()->add_action('after_uninstall', 'pfwp_fs_uninstall_cleanup');
+// NOTE: Do not call pfwp_fs() here — the main plugin file is NOT loaded when
+// WordPress runs uninstall.php, so the Freemius helper does not exist and the
+// call would fatal, blocking plugin deletion. Freemius account data is shared
+// SDK state and is left untouched intentionally.

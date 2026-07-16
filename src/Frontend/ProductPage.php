@@ -180,8 +180,11 @@ class ProductPage {
 	 * rule images that will act as the gallery. The placeholder is a non-slide sibling
 	 * inside .woocommerce-product-gallery__wrapper; it offsets flexslider's horizontal
 	 * slide positions, making the main viewport appear blank.
+	 *
+	 * @param string     $html
+	 * @param int|string $attachment_id
 	 */
-	public static function suppressGalleryPlaceholder( string $html, int|string $attachment_id ): string {
+	public static function suppressGalleryPlaceholder( string $html, $attachment_id ): string {
 		if ( $attachment_id ) {
 			return $html;
 		}
