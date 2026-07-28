@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WooCommerce Attribute Pricing — PriceBlueprint
  * Description:       Reusable pricing blueprints for WooCommerce. Assign one blueprint to multiple products — define attribute-based pricing rules once, update everywhere instantly.
- * Version:           1.7.2
+ * Version:           1.7.3
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Edgar Khachaturov
@@ -42,6 +42,7 @@ if ( ! function_exists( 'pfwp_fs' ) ) {
                 'has_addons'          => false,
                 'has_paid_plans'      => false,
                 'is_org_compliant'    => true,
+                'enable_anonymous'    => true,
                 'menu'                => array(
                     'first-path'     => 'plugins.php',
                     'account'        => false,
@@ -49,6 +50,19 @@ if ( ! function_exists( 'pfwp_fs' ) ) {
                     'support'        => false,
                 ),
             ) );
+
+            // Reassuring, plain-language opt-in message so first-time activators
+            // understand what's shared (and that "Skip" is a perfectly fine choice).
+            $pfwp_fs->add_filter( 'connect_message', function () {
+                $plugin_name = esc_html__( 'PriceBlueprint', 'priceblueprint-for-woocommerce' );
+
+                return sprintf(
+                    /* translators: 1: opening <strong>PriceBlueprint</strong> tag, 2: plugin name */
+                    esc_html__( 'Opt in to get security & feature updates for %1$s, plus help us keep it compatible with your store by sharing basic, non-personal environment info (WordPress/PHP/WooCommerce version, site URL). No spam, we never sell your data, and you can change your mind anytime from Account settings. Rather not share anything? Click "Skip" below — %2$s works exactly the same either way.', 'priceblueprint-for-woocommerce' ),
+                    '<strong>' . $plugin_name . '</strong>',
+                    $plugin_name
+                );
+            } );
         }
 
         return $pfwp_fs;
@@ -69,7 +83,7 @@ add_action( 'before_woocommerce_init', function(): void {
 // To regenerate the POT file run:
 // wp i18n make-pot . languages/priceblueprint.pot --domain=priceblueprint --exclude=vendor,node_modules
 
-define( 'PRBP_VERSION',    '1.7.2' );
+define( 'PRBP_VERSION',    '1.7.3' );
 define( 'PRBP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PRBP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 

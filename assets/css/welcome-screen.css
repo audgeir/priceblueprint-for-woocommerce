@@ -131,32 +131,59 @@ body.index_page_prbp-welcome #wpcontent {
 	line-height: 1.6;
 }
 
-/* ── Actions ── */
-.prbp-welcome-actions {
-	display: flex;
-	align-items: center;
-	gap: 16px;
-	padding: 0 4px;
+/* ── Get started card (demo import = primary, create/skip = secondary) ── */
+.prbp-welcome-getstarted {
+	background: #fff;
+	border: 1px solid #E2E8F0;
+	border-radius: 12px;
+	padding: 32px 40px;
+	margin-bottom: 12px;
+	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.04);
 }
-.prbp-welcome-cta {
+
+/* Shared button treatments */
+.prbp-welcome-btn-primary,
+.prbp-welcome-btn-secondary {
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
-	background: #0D9488;
-	color: #fff !important;
-	border: none;
 	border-radius: 6px;
-	padding: 10px 22px;
-	font-size: 14px;
 	font-weight: 600;
 	text-decoration: none !important;
 	cursor: pointer;
-	transition: background .15s;
 	line-height: 1.4;
+	font-family: inherit;
+	white-space: nowrap;
 }
-.prbp-welcome-cta:hover {
+.prbp-welcome-btn-primary {
+	flex-shrink: 0;
+	background: #0D9488;
+	color: #fff !important;
+	border: none;
+	padding: 10px 22px;
+	font-size: 14px;
+	transition: background .15s;
+}
+.prbp-welcome-btn-primary:hover {
 	background: #0a7a70;
 	color: #fff !important;
+}
+.prbp-welcome-btn-primary:disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+.prbp-welcome-btn-secondary {
+	background: #fff;
+	color: #1d2327 !important;
+	border: 1px solid #c3c4c7;
+	padding: 9px 20px;
+	font-size: 13px;
+	font-weight: 500;
+	transition: border-color .15s, color .15s;
+}
+.prbp-welcome-btn-secondary:hover {
+	border-color: #0a7a70;
+	color: #0a7a70 !important;
 }
 .prbp-welcome-skip {
 	font-size: 13px;
@@ -168,15 +195,7 @@ body.index_page_prbp-welcome #wpcontent {
 	color: #1d2327 !important;
 }
 
-/* ── Demo Import ── */
-.prbp-welcome-demo {
-	background: #fff;
-	border: 1px solid #E2E8F0;
-	border-radius: 12px;
-	padding: 28px 40px;
-	margin-top: 12px;
-	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.04);
-}
+/* ── Demo Import (primary action) ── */
 .prbp-welcome-demo .prbp-welcome-steps-title {
 	margin-bottom: 12px;
 }
@@ -192,31 +211,25 @@ body.index_page_prbp-welcome #wpcontent {
 	margin: 0;
 	line-height: 1.5;
 }
-.prbp-welcome-demo-btn {
-	flex-shrink: 0;
-	display: inline-flex;
+
+/* ── Divider between primary and secondary actions ── */
+.prbp-welcome-divider {
+	height: 1px;
+	background: #E2E8F0;
+	margin: 24px 0;
+}
+
+/* ── Secondary row: create-from-scratch + skip ── */
+.prbp-welcome-secondary-row {
+	display: flex;
 	align-items: center;
-	gap: 8px;
-	background: #fff;
-	color: #1d2327;
-	border: 1px solid #c3c4c7;
-	border-radius: 6px;
-	padding: 9px 20px;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+.prbp-welcome-secondary-label {
 	font-size: 13px;
-	font-weight: 500;
-	cursor: pointer;
-	transition: border-color .15s, color .15s;
-	line-height: 1.4;
-	font-family: inherit;
-	white-space: nowrap;
-}
-.prbp-welcome-demo-btn:hover {
-	border-color: #0a7a70;
-	color: #0a7a70;
-}
-.prbp-welcome-demo-btn:disabled {
-	cursor: not-allowed;
-	opacity: 0.6;
+	color: #64748B;
+	margin-right: 4px;
 }
 @keyframes prbp-spin {
 	to { transform: rotate( 360deg ); }

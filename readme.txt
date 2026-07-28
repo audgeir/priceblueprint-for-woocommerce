@@ -3,7 +3,7 @@ Contributors: wpedgar
 Tags: attribute-pricing, woocommerce, pricing-rules, product-attributes, variable-products, dynamic-pricing, configurable-products, product-options
 Requires at least: 6.0
 Tested up to: 7.0
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -82,6 +82,10 @@ Yes, just set the add-on to `0.00`. Handy for your base option that should not c
 6. Attribute selections and final price visible in the order details.
 
 == Changelog ==
+
+= 1.7.3 =
+* Improved the Freemius connection prompt with a clearer explanation of what's shared and why.
+* Reordered the welcome screen so trying the demo data comes first.
 
 = 1.7.2 =
 * Security: Add-to-cart validation now verifies every selected option against the blueprint's actual rule values — previously a tampered form submission could add a product to the cart without paying for its selected options.

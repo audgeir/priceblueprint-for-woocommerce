@@ -46,25 +46,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</ul>
 	</div>
 
-	<div class="prbp-welcome-actions">
-		<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=price_blueprint' ) ); ?>"
-		   class="prbp-welcome-cta">
-			<?php esc_html_e( 'Create your first Blueprint', 'priceblueprint-for-woocommerce' ); ?> &rarr;
-		</a>
-		<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=price_blueprint' ) ); ?>"
-		   class="prbp-welcome-skip">
-			<?php esc_html_e( 'Skip for now', 'priceblueprint-for-woocommerce' ); ?>
-		</a>
-	</div>
+	<div class="prbp-welcome-getstarted">
 
-	<div class="prbp-welcome-demo" id="prbp-demo-wrap">
-		<p class="prbp-welcome-steps-title"><?php esc_html_e( 'Try it first', 'priceblueprint-for-woocommerce' ); ?></p>
-		<div class="prbp-welcome-demo-row">
-			<p class="prbp-welcome-demo-desc"><?php esc_html_e( 'Import a sample blueprint and product to see how PriceBlueprint works before building your own.', 'priceblueprint-for-woocommerce' ); ?></p>
-			<button type="button" id="prbp-import-demo" class="prbp-welcome-demo-btn">
-				<?php esc_html_e( 'Import Demo Data', 'priceblueprint-for-woocommerce' ); ?>
-			</button>
+		<div class="prbp-welcome-demo" id="prbp-demo-wrap">
+			<p class="prbp-welcome-steps-title"><?php esc_html_e( 'Try it first', 'priceblueprint-for-woocommerce' ); ?></p>
+			<div class="prbp-welcome-demo-row">
+				<p class="prbp-welcome-demo-desc"><?php esc_html_e( 'Import a sample blueprint and product to see how PriceBlueprint works before building your own — the fastest way to see a real price change on your storefront.', 'priceblueprint-for-woocommerce' ); ?></p>
+				<button type="button" id="prbp-import-demo" class="prbp-welcome-btn-primary">
+					<?php esc_html_e( 'Import Demo Data', 'priceblueprint-for-woocommerce' ); ?> &rarr;
+				</button>
+			</div>
 		</div>
+
+		<div class="prbp-welcome-divider"></div>
+
+		<div class="prbp-welcome-secondary-row">
+			<span class="prbp-welcome-secondary-label"><?php esc_html_e( 'Prefer to start from scratch?', 'priceblueprint-for-woocommerce' ); ?></span>
+			<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=price_blueprint' ) ); ?>"
+			   class="prbp-welcome-btn-secondary">
+				<?php esc_html_e( 'Create your first Blueprint', 'priceblueprint-for-woocommerce' ); ?>
+			</a>
+			<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=price_blueprint' ) ); ?>"
+			   class="prbp-welcome-skip">
+				<?php esc_html_e( 'Skip for now', 'priceblueprint-for-woocommerce' ); ?>
+			</a>
+		</div>
+
 	</div>
 
 </div>
