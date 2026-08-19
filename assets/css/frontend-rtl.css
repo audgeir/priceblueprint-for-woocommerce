@@ -19,6 +19,15 @@
 	text-align: right;
 }
 
+.prbp-attribute-label-row {
+	flex-direction: row-reverse;
+}
+
+.prbp-tooltip-content {
+	left: auto;
+	right: 0;
+}
+
 .prbp-price-display {
 	flex-direction: row-reverse;
 	justify-content: flex-end;

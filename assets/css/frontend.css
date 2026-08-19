@@ -31,6 +31,57 @@
 	font-size: 14px;
 }
 
+.prbp-attribute-label-row {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.prbp-tooltip-trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	padding: 0;
+	border: 1px solid #999;
+	border-radius: 50%;
+	background: #fff;
+	color: #555;
+	font-size: 11px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.prbp-tooltip-trigger:hover,
+.prbp-tooltip-trigger:focus {
+	border-color: #0D9488;
+	color: #0D9488;
+	outline: none;
+}
+
+.prbp-tooltip-content {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 10;
+	max-width: 260px;
+	margin-top: 4px;
+	padding: 8px 10px;
+	border-radius: 4px;
+	background: #1e1e1e;
+	color: #fff;
+	font-size: 12px;
+	line-height: 1.4;
+	box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.prbp-tooltip-content--visible {
+	display: block;
+}
+
 /* Wrapper carries all visual styling so Safari's padding limitation doesn't apply. */
 .prbp-select-wrapper {
 	position: relative;

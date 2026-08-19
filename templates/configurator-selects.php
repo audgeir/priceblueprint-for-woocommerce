@@ -49,10 +49,23 @@ $prbp_initial_price = $precomputed_price ?? $prbp_min_total;
 	$prbp_selected_slug = $preselected[ $prbp_attribute ] ?? $prbp_cheapest_slug;
 	?>
 <div class="prbp-attribute-group" data-attribute="<?php echo esc_attr( $prbp_attribute ); ?>">
-	<label class="prbp-attribute-label"
-	       for="prbp_sel_<?php echo esc_attr( $prbp_attribute ); ?>">
-		<?php echo esc_html( $prbp_rules[0]['attribute_label'] ); ?>
-	</label>
+	<div class="prbp-attribute-label-row">
+		<label class="prbp-attribute-label"
+		       for="prbp_sel_<?php echo esc_attr( $prbp_attribute ); ?>">
+			<?php echo esc_html( $prbp_rules[0]['attribute_label'] ); ?>
+		</label>
+		<?php if ( '' !== ( $prbp_rules[0]['help_text'] ?? '' ) ) : ?>
+			<button type="button"
+			        class="prbp-tooltip-trigger"
+			        aria-describedby="prbp_tip_<?php echo esc_attr( $prbp_attribute ); ?>"
+			        aria-label="<?php esc_attr_e( 'More info', 'priceblueprint-for-woocommerce' ); ?>">?</button>
+			<span id="prbp_tip_<?php echo esc_attr( $prbp_attribute ); ?>"
+			      role="tooltip"
+			      class="prbp-tooltip-content">
+				<?php echo esc_html( $prbp_rules[0]['help_text'] ); ?>
+			</span>
+		<?php endif; ?>
+	</div>
 	<div class="prbp-select-wrapper">
 		<select name="prbp_selections[<?php echo esc_attr( $prbp_attribute ); ?>]"
 		        id="prbp_sel_<?php echo esc_attr( $prbp_attribute ); ?>"
