@@ -166,12 +166,12 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 						<div class="prbp-help-text-wrap"
 						     @keydown.escape.window="entry.section._helpOpen = false">
 							<button type="button"
-							        class="prbp-help-text-btn button button-small"
-							        title="<?php esc_attr_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>"
+							        class="prbp-help-text-btn prbp-btn-labeled button button-small"
+							        :title="entry.section._helpOpen ? prbpAdmin.i18n.hide_settings : prbpAdmin.i18n.show_settings"
 							        :aria-expanded="entry.section._helpOpen ? 'true' : 'false'"
 							        @click="toggleHelpPopover(entry.section)">
 								<span class="dashicons dashicons-admin-generic" aria-hidden="true"></span>
-								<span class="screen-reader-text"><?php esc_html_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?></span>
+								<span class="prbp-btn-label" x-text="entry.section._helpOpen ? prbpAdmin.i18n.hide_settings : prbpAdmin.i18n.show_settings"></span>
 							</button>
 						</div>
 
