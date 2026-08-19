@@ -52,7 +52,7 @@ body.index_page_prbp-welcome #wpcontent {
 	color: #5EEAD4;
 	border-radius: 20px;
 	padding: 3px 12px;
-	font-size: 10px;
+	font-size: 12px;
 	font-weight: 700;
 	letter-spacing: .09em;
 	text-transform: uppercase;
@@ -83,7 +83,7 @@ body.index_page_prbp-welcome #wpcontent {
 	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.04);
 }
 .prbp-welcome-steps-title {
-	font-size: 11px;
+	font-size: 12px;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: .08em;
