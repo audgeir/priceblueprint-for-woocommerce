@@ -139,7 +139,6 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 			<div class="prbp-section"
 			     :class="{ 'prbp-section--dragging': isDraggedSection(entry.section) }"
 			     x-show="entry.sectionInDom"
-			     @click.outside="entry.section._helpOpen = false"
 			     @dragover.prevent
 			     @dragenter.prevent="onSectionDragEnter($event, entry.section)"
 			     @drop.prevent="onSectionDragEnd()">
@@ -163,18 +162,6 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 					</button>
 
 					<div class="prbp-section-actions">
-						<div class="prbp-help-text-wrap"
-						     @keydown.escape.window="entry.section._helpOpen = false">
-							<button type="button"
-							        class="prbp-help-text-btn prbp-btn-labeled button button-small"
-							        :title="entry.section._helpOpen ? prbpAdmin.i18n.hide_settings : prbpAdmin.i18n.show_settings"
-							        :aria-expanded="entry.section._helpOpen ? 'true' : 'false'"
-							        @click="toggleHelpPopover(entry.section)">
-								<span class="dashicons dashicons-admin-generic" aria-hidden="true"></span>
-								<span class="prbp-btn-label" x-text="entry.section._helpOpen ? prbpAdmin.i18n.hide_settings : prbpAdmin.i18n.show_settings"></span>
-							</button>
-						</div>
-
 						<button type="button"
 						        class="prbp-reset-btn prbp-btn-labeled button button-small"
 						        title="<?php esc_attr_e( 'Reset', 'priceblueprint-for-woocommerce' ); ?>"
@@ -194,7 +181,7 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 				</div>
 
 				<div class="prbp-help-text-popover"
-				     x-show="entry.section._helpOpen"
+				     x-show="entry.expanded"
 				     x-cloak>
 					<label class="prbp-help-text-label" :for="'prbp-help-' + entry.section._uid">
 						<?php esc_html_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>

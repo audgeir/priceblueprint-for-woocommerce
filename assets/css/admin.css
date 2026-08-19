@@ -612,42 +612,8 @@
 }
 
 /* --------------------------------------------------------------------------
-   Section help-text popover
+   Section help-text field
    -------------------------------------------------------------------------- */
-.prbp-help-text-wrap {
-	position: relative;
-	display: inline-flex;
-}
-
-.prbp-help-text-btn {
-	display: inline-flex !important;
-	align-items: center;
-	justify-content: center;
-	height: 30px !important;
-	line-height: 1 !important;
-	border-radius: 6px !important;
-	background: #fff !important;
-	color: #0D9488 !important;
-	border-color: rgba(13, 148, 136, 0.35) !important;
-	background: rgba(13, 148, 136, 0.06) !important;
-	transition: background .12s, border-color .12s, color .12s !important;
-}
-
-.prbp-help-text-btn:hover {
-	color: #0f766e !important;
-	border-color: rgba(15, 118, 110, 0.45) !important;
-	background: rgba(15, 118, 110, 0.12) !important;
-}
-
-.prbp-help-text-btn .dashicons {
-	width: 15px;
-	height: 15px;
-	font-size: 15px;
-	line-height: 1;
-	vertical-align: middle;
-	margin: 0;
-}
-
 .prbp-help-text-popover {
 	padding: 12px;
 	border-top: 1px solid #E2E8F0;

@@ -120,7 +120,6 @@ export class DomController {
 				attribute:       '',
 				attribute_label: '',
 				help_text:       '',
-				_helpOpen:       false,
 				rows:            [],
 				expanded:        false,
 			},
@@ -458,10 +457,6 @@ export class DomController {
 
 			toggleSection( section ) {
 				section.expanded = ! section.expanded;
-			},
-
-			toggleHelpPopover( section ) {
-				section._helpOpen = ! section._helpOpen;
 			},
 
 			// ── Section drag & drop ──────────────────────────────────────────

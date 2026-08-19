@@ -169,8 +169,6 @@ class RulesRepeater {
 			'product_edit_url' => admin_url( 'post.php?post=' ),
 			'wc_terms_url'     => admin_url( 'edit-tags.php?taxonomy=' ),
 			'i18n'             => [
-				'show_settings'       => __( 'Show Settings', 'priceblueprint-for-woocommerce' ),
-				'hide_settings'       => __( 'Hide Settings', 'priceblueprint-for-woocommerce' ),
 				'loading'             => __( 'Loading…', 'priceblueprint-for-woocommerce' ),
 				'load_error'          => __( 'Failed to load terms.', 'priceblueprint-for-woocommerce' ),
 				'select_term'         => __( 'Select term(s)', 'priceblueprint-for-woocommerce' ),
