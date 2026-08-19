@@ -61,9 +61,7 @@ $prbp_initial_price = $precomputed_price ?? $prbp_min_total;
 			        aria-label="<?php esc_attr_e( 'More info', 'priceblueprint-for-woocommerce' ); ?>">?</button>
 			<span id="prbp_tip_<?php echo esc_attr( $prbp_attribute ); ?>"
 			      role="tooltip"
-			      class="prbp-tooltip-content">
-				<?php echo esc_html( $prbp_rules[0]['help_text'] ); ?>
-			</span>
+			      class="prbp-tooltip-content"><?php echo esc_html( $prbp_rules[0]['help_text'] ); ?></span>
 		<?php endif; ?>
 	</div>
 	<div class="prbp-select-wrapper">

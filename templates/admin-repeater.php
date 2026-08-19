@@ -163,7 +163,8 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 					</button>
 
 					<div class="prbp-section-actions">
-						<div class="prbp-help-text-wrap">
+						<div class="prbp-help-text-wrap"
+						     @keydown.escape.window="entry.section._helpOpen = false">
 							<button type="button"
 							        class="prbp-help-text-btn button button-small"
 							        title="<?php esc_attr_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>"
