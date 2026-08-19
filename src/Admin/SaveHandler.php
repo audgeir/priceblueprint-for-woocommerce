@@ -101,6 +101,7 @@ class SaveHandler {
 			$clean[] = [
 				'attribute'       => sanitize_key( $section['attribute'] ?? '' ),
 				'attribute_label' => sanitize_text_field( $section['attribute_label'] ?? '' ),
+				'help_text'       => sanitize_textarea_field( $section['help_text'] ?? '' ),
 				'rows'            => $rows,
 			];
 		}
