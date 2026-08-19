@@ -3,7 +3,7 @@ Contributors: wpedgar
 Tags: attribute-pricing, woocommerce, pricing-rules, product-attributes, variable-products
 Requires at least: 6.0
 Tested up to: 7.0
-Stable tag: 1.7.4
+Stable tag: 1.8.0
 Requires PHP: 7.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -82,6 +82,9 @@ Yes, just set the add-on to `0.00`. Handy for your base option that should not c
 6. Attribute selections and final price visible in the order details.
 
 == Changelog ==
+
+= 1.8.0 =
+* New: Optional help text per attribute — add a short note to any attribute in the Pricing Rules editor and it shows as an info icon next to the attribute name on the product page, with hover, tap, and keyboard support.
 
 = 1.7.4 =
 * Renamed the plugin to "PriceBlueprint Attribute Pricing for WooCommerce" — resolves a WordPress.org Plugin Directory naming guideline violation (display name previously led with the "WooCommerce" trademark).
