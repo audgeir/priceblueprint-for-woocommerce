@@ -1,6 +1,6 @@
 === PriceBlueprint Attribute Pricing for WooCommerce ===
 Contributors: wpedgar
-Tags: attribute-pricing, woocommerce, pricing-rules, product-attributes, variable-products, dynamic-pricing, configurable-products, product-options
+Tags: attribute-pricing, woocommerce, pricing-rules, product-attributes, variable-products
 Requires at least: 6.0
 Tested up to: 7.0
 Stable tag: 1.7.4
@@ -85,6 +85,7 @@ Yes, just set the add-on to `0.00`. Handy for your base option that should not c
 
 = 1.7.4 =
 * Renamed the plugin to "PriceBlueprint Attribute Pricing for WooCommerce" — resolves a WordPress.org Plugin Directory naming guideline violation (display name previously led with the "WooCommerce" trademark).
+* Trimmed the Tags list to 5 (attribute-pricing, woocommerce, pricing-rules, product-attributes, variable-products) — WordPress.org ignores anything past the 5th tag.
 
 = 1.7.3 =
 * Improved the Freemius connection prompt with a clearer explanation of what's shared and why.
