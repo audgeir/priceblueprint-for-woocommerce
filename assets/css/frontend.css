@@ -34,7 +34,7 @@
 .prbp-attribute-label-row {
 	position: relative;
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	gap: 6px;
 }
 
