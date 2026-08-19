@@ -615,16 +615,39 @@
    Section help-text field
    -------------------------------------------------------------------------- */
 .prbp-help-text-popover {
-	padding: 12px;
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	padding: 12px 14px;
 	border-top: 1px solid #E2E8F0;
+	border-bottom: 1px solid #E2E8F0;
+	border-left: 3px solid rgba(13, 148, 136, 0.35);
 	background: #F8FAFC;
+}
+
+.prbp-help-text-icon {
+	flex-shrink: 0;
+	margin-top: 2px;
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
+	line-height: 1;
+	color: #0D9488;
+}
+
+.prbp-help-text-body {
+	flex: 1;
+	min-width: 0;
 }
 
 .prbp-help-text-label {
 	display: block;
 	margin-bottom: 4px;
-	font-size: 11px;
-	font-weight: 600;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	color: #0D9488;
 }
 
 .prbp-help-text-input {

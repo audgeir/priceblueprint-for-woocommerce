@@ -183,14 +183,17 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 				<div class="prbp-help-text-popover"
 				     x-show="entry.expanded"
 				     x-cloak>
-					<label class="prbp-help-text-label" :for="'prbp-help-' + entry.section._uid">
-						<?php esc_html_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>
-					</label>
-					<textarea :id="'prbp-help-' + entry.section._uid"
-					          class="prbp-help-text-input"
-					          rows="3"
-					          x-model="entry.section.help_text"
-					          placeholder="<?php esc_attr_e( 'Shown as a tooltip next to this attribute on the product page.', 'priceblueprint-for-woocommerce' ); ?>"></textarea>
+					<span class="dashicons dashicons-editor-help prbp-help-text-icon" aria-hidden="true"></span>
+					<div class="prbp-help-text-body">
+						<label class="prbp-help-text-label" :for="'prbp-help-' + entry.section._uid">
+							<?php esc_html_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>
+						</label>
+						<textarea :id="'prbp-help-' + entry.section._uid"
+						          class="prbp-help-text-input"
+						          rows="3"
+						          x-model="entry.section.help_text"
+						          placeholder="<?php esc_attr_e( 'Shown as a tooltip next to this attribute on the product page.', 'priceblueprint-for-woocommerce' ); ?>"></textarea>
+					</div>
 				</div>
 
 				<table class="prbp-rules-table prbp-section-table widefat" x-show="entry.expanded">
