@@ -85,6 +85,7 @@ Yes, just set the add-on to `0.00`. Handy for your base option that should not c
 
 = 1.8.0 =
 * New: Optional help text per attribute — add a short note to any attribute in the Pricing Rules editor and it shows as an info icon next to the attribute name on the product page, with hover, tap, and keyboard support.
+* Improved: Pricing Rules editor text sizing reworked for readability — nothing smaller than 12px, and size now reflects importance (attribute names stand out from labels and secondary text).
 
 = 1.7.4 =
 * Renamed the plugin to "PriceBlueprint Attribute Pricing for WooCommerce" — resolves a WordPress.org Plugin Directory naming guideline violation (display name previously led with the "WooCommerce" trademark).
