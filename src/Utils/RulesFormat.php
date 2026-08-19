@@ -82,11 +82,13 @@ class RulesFormat {
 		foreach ( $sections as $section ) {
 			$attribute = $section['attribute']       ?? '';
 			$label     = $section['attribute_label'] ?? '';
+			$help_text = $section['help_text']        ?? '';
 
 			foreach ( (array) ( $section['rows'] ?? [] ) as $row ) {
 				$entry = [
 					'attribute'       => $attribute,
 					'attribute_label' => $label,
+					'help_text'       => $help_text,
 					'value_ids'       => $row['value_ids']    ?? [],
 					'value_slugs'     => $row['value_slugs']  ?? [],
 					'value_labels'    => $row['value_labels'] ?? [],
