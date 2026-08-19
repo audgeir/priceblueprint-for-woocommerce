@@ -119,6 +119,8 @@ export class DomController {
 				_uid:            ++this._uid,
 				attribute:       '',
 				attribute_label: '',
+				help_text:       '',
+				_helpOpen:       false,
 				rows:            [],
 				expanded:        false,
 			},
@@ -391,6 +393,7 @@ export class DomController {
 					this.sections.push( ctrl.makeSection( {
 						attribute:       section.attribute || '',
 						attribute_label: section.attribute_label || '',
+						help_text:       section.help_text || '',
 						rows:            Array.isArray( section.rows ) ? section.rows : [],
 					} ) );
 				} );
@@ -455,6 +458,10 @@ export class DomController {
 
 			toggleSection( section ) {
 				section.expanded = ! section.expanded;
+			},
+
+			toggleHelpPopover( section ) {
+				section._helpOpen = ! section._helpOpen;
 			},
 
 			// ── Section drag & drop ──────────────────────────────────────────
@@ -650,6 +657,7 @@ export class DomController {
 					payload.push( {
 						attribute:       section.attribute,
 						attribute_label: section.attribute_label,
+						help_text:       section.help_text || '',
 						rows,
 					} );
 				} );
