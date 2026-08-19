@@ -22,7 +22,7 @@ No variations are created or stored. Rules grow linearly, not exponentially.
 ## Features
 
 - **Reusable blueprints** — one template controls pricing across all linked products
-- **Attribute-based pricing** — add, subtract, multiply, divide, or fixed price per attribute value
+- **Attribute-based pricing** — set a price add-on per attribute value
 - **Live price calculator** — price updates in real time as customers select options
 - **Full cart & checkout integration** — selections visible at every step
 - **Complete order records** — attribute selections appear in WC Admin, emails, Thank You page, My Account
