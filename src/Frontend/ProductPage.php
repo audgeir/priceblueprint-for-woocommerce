@@ -272,7 +272,7 @@ class ProductPage {
 			[],
 			PRBP_VERSION
 		);
-		wp_style_add_data( 'prbp-frontend', 'rtl', 'replace' );
+		wp_style_add_data( 'prbp-frontend', 'rtl', true );
 
 		wp_enqueue_script(
 			'prbp-frontend',

@@ -34,6 +34,8 @@ export function bindTooltips( configurator ) {
 
 		trigger.addEventListener( 'mouseenter', show );
 		trigger.addEventListener( 'mouseleave', hide );
+		tooltip.addEventListener( 'mouseenter', show );
+		tooltip.addEventListener( 'mouseleave', hide );
 
 		trigger.addEventListener( 'focus', function () {
 			if ( ! isVisible() ) {

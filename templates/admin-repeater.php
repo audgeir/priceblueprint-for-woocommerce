@@ -139,6 +139,7 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 			<div class="prbp-section"
 			     :class="{ 'prbp-section--dragging': isDraggedSection(entry.section) }"
 			     x-show="entry.sectionInDom"
+			     @click.outside="entry.section._helpOpen = false"
 			     @dragover.prevent
 			     @dragenter.prevent="onSectionDragEnter($event, entry.section)"
 			     @drop.prevent="onSectionDragEnd()">
@@ -162,9 +163,7 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 					</button>
 
 					<div class="prbp-section-actions">
-						<div class="prbp-help-text-wrap"
-						     @click.outside="entry.section._helpOpen = false"
-						     @keydown.escape.window="entry.section._helpOpen = false">
+						<div class="prbp-help-text-wrap">
 							<button type="button"
 							        class="prbp-help-text-btn button button-small"
 							        title="<?php esc_attr_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>"
@@ -173,18 +172,6 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 								<span class="dashicons dashicons-admin-generic" aria-hidden="true"></span>
 								<span class="screen-reader-text"><?php esc_html_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?></span>
 							</button>
-							<div class="prbp-help-text-popover"
-							     x-show="entry.section._helpOpen"
-							     x-cloak>
-								<label class="prbp-help-text-label" :for="'prbp-help-' + entry.section._uid">
-									<?php esc_html_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>
-								</label>
-								<textarea :id="'prbp-help-' + entry.section._uid"
-								          class="prbp-help-text-input"
-								          rows="3"
-								          x-model="entry.section.help_text"
-								          placeholder="<?php esc_attr_e( 'Shown as a tooltip next to this attribute on the product page.', 'priceblueprint-for-woocommerce' ); ?>"></textarea>
-							</div>
 						</div>
 
 						<button type="button"
@@ -203,6 +190,19 @@ var prbpCurrencySymbol = <?php echo wp_json_encode( html_entity_decode( get_wooc
 							<span class="prbp-btn-label"><?php esc_html_e( 'Delete', 'priceblueprint-for-woocommerce' ); ?></span>
 						</button>
 					</div>
+				</div>
+
+				<div class="prbp-help-text-popover"
+				     x-show="entry.section._helpOpen"
+				     x-cloak>
+					<label class="prbp-help-text-label" :for="'prbp-help-' + entry.section._uid">
+						<?php esc_html_e( 'Help text', 'priceblueprint-for-woocommerce' ); ?>
+					</label>
+					<textarea :id="'prbp-help-' + entry.section._uid"
+					          class="prbp-help-text-input"
+					          rows="3"
+					          x-model="entry.section.help_text"
+					          placeholder="<?php esc_attr_e( 'Shown as a tooltip next to this attribute on the product page.', 'priceblueprint-for-woocommerce' ); ?>"></textarea>
 				</div>
 
 				<table class="prbp-rules-table prbp-section-table widefat" x-show="entry.expanded">

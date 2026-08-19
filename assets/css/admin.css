@@ -651,16 +651,9 @@
 }
 
 .prbp-help-text-popover {
-	position: absolute;
-	top: 34px;
-	left: 0;
-	z-index: 20;
-	width: 260px;
-	padding: 10px;
-	border: 1px solid #ddd;
-	border-radius: 6px;
-	background: #fff;
-	box-shadow: 0 2px 10px rgba(0,0,0,.12);
+	padding: 12px;
+	border-top: 1px solid #E2E8F0;
+	background: #F8FAFC;
 }
 
 .prbp-help-text-label {
