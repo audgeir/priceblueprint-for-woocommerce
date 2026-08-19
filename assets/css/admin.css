@@ -619,10 +619,10 @@
 	flex-direction: column;
 	gap: 6px;
 	padding: 12px 14px;
-	border-top: 1px solid #E2E8F0;
-	border-bottom: 1px solid #E2E8F0;
-	border-left: 3px solid rgba(13, 148, 136, 0.35);
-	background: #F8FAFC;
+	border-top: 1px solid rgba(180, 83, 9, 0.15);
+	border-bottom: 1px solid rgba(180, 83, 9, 0.15);
+	border-left: 3px solid rgba(180, 83, 9, 0.35);
+	background: rgba(180, 83, 9, 0.06);
 }
 
 .prbp-help-text-label-row {
@@ -637,7 +637,7 @@
 	height: 15px;
 	font-size: 15px;
 	line-height: 1;
-	color: #0D9488;
+	color: #B45309;
 }
 
 .prbp-help-text-label {
@@ -645,7 +645,7 @@
 	font-weight: 700;
 	letter-spacing: 0.07em;
 	text-transform: uppercase;
-	color: #0D9488;
+	color: #B45309;
 }
 
 .prbp-help-text-input {
