@@ -15,6 +15,7 @@
 import { updatePrice }        from './single-product/update-price.js';
 import { updateImage, initImageSync } from './single-product/update-image.js';
 import { bindFormValidation } from './single-product/validate-form.js';
+import { bindTooltips }       from './single-product/tooltip.js';
 
 initImageSync();
 
@@ -35,4 +36,5 @@ document.querySelectorAll( '.prbp-configurator' ).forEach( function ( configurat
 	}
 
 	bindFormValidation( configurator );
+	bindTooltips( configurator );
 } );
